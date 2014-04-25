@@ -3,11 +3,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>AjaxPostBasic</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script type='text/javascript' src="js/angular.min.js"></script>
 		<script type='text/javascript' src="js/angular-sanitize.min.js"></script>
-		<script type='text/javascript' src="js/angular-animate.min.js"></script>
-		<script type='text/javascript' src="js/script.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type='text/javascript' src="script.js"></script>
 	</head>
 	
 	<body>

@@ -1,5 +1,5 @@
-var app = angular.module("Basicpost", ["ngSanitize" , "ngAnimate"]);
-app.controller('BasicpostController', function ($scope , $http , $templateCache , $timeout) {
+var app = angular.module("Basicpost", ["ngSanitize"]);
+app.controller('BasicpostController', function ($scope , $http , $templateCache) {
 
 	var fileData = "";
 
