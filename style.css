@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+body,html {
+	font-size: 12px;
+	line-height: 16px;
+}
+
+a {
+	display: inline-block;
+	background: #46c;
+	color: #fff;
+	padding: 3px;
+	text-decoration: none;
+}
+a:hover {
+	background: #58e;
+}
