@@ -1,5 +1,5 @@
-var app = angular.module("Fileupload", ["ngSanitize" , "ngAnimate"]);
-app.controller('FileuploadController', function ($scope , $http , $templateCache , $timeout) {
+var app = angular.module("Fileupload", ["ngSanitize"]);
+app.controller('FileuploadController', function ($scope , $http , $templateCache) {
 
 	var fileData = "";
 

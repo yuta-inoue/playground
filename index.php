@@ -9,8 +9,8 @@
 	<body>
 		<h1>Masa's Free Space</h1>
 		<nav>
-			<div><a href="js/angularjs/ajaxPostBasic/">Form Post ( Angularjs + PHP )</a></div>
-			<div><a href="js/angularjs/ajaxPostFileUpload/">Form FileUpload And Post ( Angularjs + PHP )</a></div>
+			<div><a href="angularjs/ajaxPostBasic/">Form Post ( Angularjs + PHP )</a></div>
+			<div><a href="angularjs/ajaxPostFileUpload/">Form FileUpload And Post ( Angularjs + PHP )</a></div>
 		</nav>
 	</body>
 </html>
