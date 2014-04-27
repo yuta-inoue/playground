@@ -11,6 +11,7 @@
 		<nav>
 			<div><a href="angularjs/ajaxPostBasic/">Form Post ( Angularjs + PHP )</a></div>
 			<div><a href="angularjs/ajaxPostFileUpload/">Form FileUpload And Post ( Angularjs + PHP )</a></div>
+			<div><a href="angularjs/ngRepeatReplaceContents/">ngRepeat Replace contents ( Angularjs )</a></div>
 		</nav>
 	</body>
 </html>
