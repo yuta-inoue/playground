@@ -12,6 +12,7 @@
 			<div><a href="angularjs/ajaxPostBasic/">Form Post ( Angularjs + PHP )</a></div>
 			<div><a href="angularjs/ajaxPostFileUpload/">Form FileUpload And Post ( Angularjs + PHP )</a></div>
 			<div><a href="angularjs/ngRepeatReplaceContents/">ngRepeat Replace contents ( Angularjs )</a></div>
+			<div><a href="resizeImage/?image=http://gems.github.com/octocat.png&w=100&h=100&q=90&t=absolute">Resize Image ( PHP )</a></div>
 		</nav>
 	</body>
 </html>
