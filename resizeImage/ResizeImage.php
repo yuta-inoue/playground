@@ -28,7 +28,7 @@ class ResizeImage {
 
 		if($this->chkDoResize()){
 			$this->setImageSize($this->type);
-			$this->imageId = $this->prepareImage($this->imageInfo['type']);
+			$this->imageId = $this->prepareImage($this->imageInfo['extension']);
 			$this->imageId["origin"] = (!empty($this->imageInfo["Orientation"])) ? $this->rotate($this->imageId["origin"]) : $this->imageId["origin"];
 			imagecopyresized(
 				$this->imageId["copy"] , $this->imageId["origin"] ,
@@ -45,7 +45,7 @@ class ResizeImage {
 		$arr = (!empty($fileURL)) ? getimagesize($fileURL) : null;
 		$result["width"] = (!empty($arr[0])) ? $arr[0] : null;
 		$result["height"] = (!empty($arr[1])) ? $arr[1] : null;
-		$result["type"] = (!empty($arr[2])) ? image_type_to_extension($arr[2] , false) : null;
+		$result["extension"] = (!empty($arr[2])) ? image_type_to_extension($arr[2] , false) : null;
 		$result["mime"] = (!empty($arr["mime"])) ? $arr["mime"] : null;
 		foreach($result as $val){
 			if(empty($val)){
@@ -124,7 +124,7 @@ class ResizeImage {
 	}
 	
 	private function save($copy_id){
-		switch($this->imageInfo['type']){
+		switch($this->imageInfo['extension']){
 			case "png":
 				imagepng($copy_id , $this->fileURL);
 				break;

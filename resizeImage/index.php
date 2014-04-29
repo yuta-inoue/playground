@@ -15,7 +15,7 @@ $image = (!empty($_GET['image'])) ? htmlspecialchars($_GET['image'] , ENT_QUOTES
 
 $imageInfo = $ResizeImage->getImageInfo($image);
 //$imageInfo['type'] = 'jpg';
-$cpFilePath = "img/copy.{$imageInfo['type']}";
+$cpFilePath = "img/copy.{$imageInfo['extension']}";
 $copyUrl = __DIR__ . "/{$cpFilePath}";
 copy($image , $copyUrl);
 
