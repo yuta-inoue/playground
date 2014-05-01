@@ -22,10 +22,10 @@ class MkRandomCode {
 		$data = $this->randomData[$this->randomType];
 		$arr = preg_split("//" , $data);
 		$arr = array_filter($arr , 'strlen');
-		//var_dump($arr);
-		$strCnt = count($arr);
+		$arr = array_values($arr);
+		$strCnt = count($arr) - 1;
 		for($i = 0; $i < $len; $i++){
-			$this->result = "{$this->result}{$arr[mt_rand(1,$strCnt)]}";
+			$this->result = "{$this->result}{$arr[mt_rand(0,$strCnt)]}";
 		}
 		return $this->result;
 	}
