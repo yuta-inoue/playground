@@ -47,6 +47,8 @@ $MkRandomCode = new MkRandomCode($type);
 			</dd>
 		</dl>
 		<h2>Result</h2>
-		<?php echo $MkRandomCode->get($len , $len2);?>
+		<?php var_dump($MkRandomCode->getResult($len , $len2));?><br>
+		<?php echo $MkRandomCode->get($len , $len2);?><br>
+		<?php var_dump($MkRandomCode->getResult($len , $len2));?>
 	</body>
 </html>

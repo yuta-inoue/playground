@@ -35,4 +35,7 @@ class MkRandomCode {
 	public function getRandomTypeList(){
 		return $this->randomData;
 	}
+	public function getResult(){
+		return $this->result;
+	}
 }
