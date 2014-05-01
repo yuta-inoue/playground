@@ -10,11 +10,10 @@ $width = (!empty($_GET['w'])) ? intval($_GET['w']) : null;
 $height = (!empty($_GET['h'])) ? intval($_GET['h']) : null;
 $quality = (!empty($_GET['q'])) ? intval($_GET['q']) : null;
 $type = (!empty($_GET['t'])) ? htmlspecialchars($_GET['t'] , ENT_QUOTES) : null;
-// image=http://gems.github.com/octocat.png
 $image = (!empty($_GET['image'])) ? htmlspecialchars($_GET['image'] , ENT_QUOTES) : 'img/test.jpg';
 
 $imageInfo = $ResizeImage->getImageInfo($image);
-//$imageInfo['type'] = 'jpg';
+
 $cpFilePath = "img/copy.{$imageInfo['extension']}";
 $copyUrl = __DIR__ . "/{$cpFilePath}";
 copy($image , $copyUrl);
@@ -40,14 +39,22 @@ $ResizeImage->resize($copyUrl , $width , $height , $quality , $type);
 	<body>	
 		<h1>Resize Image</h1>
 		<p>
+			Fatal error: Call to undefined function imagecreatefrompng()<br>
+			please try yum -y install php-gd (php55w-gd , etc...)<br>
+			then, /etc/rc.d/init.d/httpd restart
+		</p>
+		<p>
 			img/ is must be 0777(chmod).<br>
 			if this is not working, please make sure img/ permission
 		</p>
+		<h2>Get</h2>
+		<a href="get.php?image=http://gems.github.com/octocat.png&w=100&h=100&q=90&t=absolute" target="_blank">get.php &gt;&gt;</a>
 		<h2>How to use</h2>
 		<p>
 			add GET paramater like this.<br>
 			ex) ?image=http://gems.github.com/octocat.png&w=100&h=100&q=90&t=absolute
 		</p>
+		<h2>Parameter</h2>
 		<dl>
 			<dt>image</dt>
 			<dd>URL of image (default is img/test.jpg)</dd>
