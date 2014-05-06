@@ -1,10 +1,11 @@
 <?php
 
+use Phalcon\Mvc\Router;
 use Phalcon\DI\FactoryDefault;
-use Phalcon\Mvc\View;
+//use Phalcon\Mvc\View;
 use Phalcon\Mvc\Url as UrlResolver;
-use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
-use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
+//use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
+//use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 
@@ -16,16 +17,67 @@ $di = new FactoryDefault();
 /**
  * The URL component is used to generate all kind of urls in the application
  */
-$di->set('url', function () use ($config) {
+$di->set('url', function () {
     $url = new UrlResolver();
-    $url->setBaseUri($config->application->baseUri);
+    //$url->setBaseUri($config->application->baseUri);
+    $url->setBaseUri('/');
 
     return $url;
 }, true);
 
 /**
- * Setting up the view component
+ * Registering a router
  */
+$di->set('router', function () {
+
+    $router = new Router();
+
+    $router->setDefaultModule("front");
+    $router->setDefaultController("index");
+    $router->setDefaultAction("index");
+    $moduleArr = array(
+        'api',
+        'front',
+        'etc'
+    );
+    $router->add("/:controller/:action/:params",
+        array(
+            'controller' => 1,
+            'action'     => 2,
+            'params'     => 3
+        )
+    );
+    foreach ($moduleArr as $val) {
+        $router->add("/{$val}/:controller/:action/:params",
+            array(
+                'module'     => $val,
+                'controller' => 1,
+                'action'     => 2,
+                'params'     => 3
+            )
+        );
+        $router->add("/{$val}/:controller/",
+            array(
+                'module'     => $val,
+                'controller' => 1,
+                'action'     => 'index'
+            )
+        );
+        $router->add("/{$val}/",
+            array(
+                'module'     => $val,
+                'controller' => 'index',
+                'action'     => 'index'
+            )
+        );
+    }
+
+    return $router;
+}, true);
+
+/**
+ * Setting up the view component
+ *
 $di->set('view', function () use ($config) {
 
     $view = new View();
@@ -52,7 +104,7 @@ $di->set('view', function () use ($config) {
 
 /**
  * Database connection is created based in the parameters defined in the configuration file
- */
+ *
 $di->set('db', function () use ($config) {
     return new DbAdapter(array(
         'host' => $config->database->host,
