@@ -10,6 +10,11 @@
 		{% endfor %}
 	</head>
 	<body>
+		<nav>
+			<div><a href="api/">api</a></div>
+			<div><a href="etc/">etc</a></div>
+			<div><a href="test/">test</a></div>
+		</nav>
 		<h1>front/views/index.volt</h1>
 		{{content()}}
 		
